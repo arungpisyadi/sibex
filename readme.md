@@ -2,8 +2,6 @@
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
-[![Build Status][ico-travis]][link-travis]
-[![StyleCI][ico-styleci]][link-styleci]
 
 A more straight forward package to use SendinBlue API V3 in Laravel environment (Ex : Express Solution). The package will enable you to handle SendInBlue various functions through Laravel Facade, mostly related to building email list and managing marketing campaign.
 
@@ -53,12 +51,8 @@ GNU. Please see the [license file](license.md) for more information.
 
 [ico-version]: https://img.shields.io/packagist/v/arungpisyadi/sibex.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/arungpisyadi/sibex.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/arungpisyadi/sibex/master.svg?style=flat-square
-[ico-styleci]: https://styleci.io/repos/12345678/shield
 
 [link-packagist]: https://packagist.org/packages/arungpisyadi/sibex
 [link-downloads]: https://packagist.org/packages/arungpisyadi/sibex
-[link-travis]: https://travis-ci.org/arungpisyadi/sibex
-[link-styleci]: https://styleci.io/repos/12345678
 [link-author]: https://github.com/arungpisyadi
 [link-contributors]: ../../contributors
