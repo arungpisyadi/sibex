@@ -1,4 +1,8 @@
-GNU GENERAL PUBLIC LICENSE
+# The license
+
+Copyright (c) Arung Isyadi <isyadiarung@gmail.com>
+
+                    GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
  Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
