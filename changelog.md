@@ -6,6 +6,7 @@ All notable changes to `SiBex` will be documented in this file.
 
 ### Added
 - Several basic functions especially on Account and Contact API.
+- p2 : move the add to contact model to grouped class.
 
 ## Version 0.0.1
 

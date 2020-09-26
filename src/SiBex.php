@@ -154,7 +154,7 @@ class SiBex
 
         $api = $this->setupApiInstance('contact');
 
-        $email_params = new \SendinBlue\Client\Model\AddContactToList(['emails' => $email_arr]);
+        $email_params = Contact::AddContactToList($email_arr);
         // dd($email_params);
 
         try {

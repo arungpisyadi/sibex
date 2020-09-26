@@ -35,5 +35,10 @@ class Contact
 
         return new \SendinBlue\Client\Model\CreateContact($params);
     }
+
+    public static function AddContactToList(array $emails)
+    {
+        return new \SendinBlue\Client\Model\AddContactToList(['emails' => $emails]);
+    }
 }
 ?>
