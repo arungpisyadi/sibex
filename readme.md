@@ -23,7 +23,8 @@ $ composer require arungpisyadi/sibex
     <?php
     use ArungPIsyadi\SiBex\SiBex;
 
-    $sibex = new SiBex(SIB_API_TYPE, SIB_API_KEY); // either "api-key" or "partner-key", you SendInBlue API key.
+    // These values is better kept save on .env file.
+    $sibex = new SiBex(SIB_API_TYPE, SIB_API_KEY); // either "api-key" or "partner-key", your SendInBlue API key.
 
     # Account function.
     dump($account = $sibex->getAccount());
