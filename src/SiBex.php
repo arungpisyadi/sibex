@@ -2,6 +2,7 @@
 
 namespace ArungPIsyadi\SiBex;
 
+use ArungPIsyadi\SiBex\SibexModels\Contact;
 use Carbon\Carbon;
 use Illuminate\Support\Arr;
 
@@ -123,12 +124,13 @@ class SiBex
         $api = $this->setupApiInstance('contact');
 
         try {
-            $return = $api->createList($params);
+            $list = $api->createList($params);
+            $return = intval($list['id']);
         } catch (\Throwable $th) {
             $return = $th->getCode().': '.$th->getMessage();
         }
 
-        return intval($return['id']);
+        return $return;
     }
 
     public function addContactToList(int $listId = null, string $emails = null)
@@ -159,6 +161,32 @@ class SiBex
             $return = $api->addContactToList($listId, $email_params);
         } catch (\Throwable $th) {
             $return = $th->getCode().': '.$th->getMessage();
+        }
+
+        return $return;
+    }
+    
+    /**
+     * Create new contact based on email address input.
+     * if email address already exists return string output with code 400.
+     * "code":"duplicate_parameter","message":"Contact already exist"
+     *
+     * @param string $email
+     * @param object $atts
+     * @return int $id
+     */
+    public function createContact(string $email, object $atts = null)
+    {
+        $return = null;
+        $params = Contact::CreateContact($email, $atts);
+
+        $api = $this->setupApiInstance('contact');
+
+        try {
+            $contact = $api->createContact($params);
+            $return = intval($contact['id']);
+        } catch (\Throwable $th) {
+            $return = $th->getMessage();
         }
 
         return $return;

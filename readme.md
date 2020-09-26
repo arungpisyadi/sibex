@@ -18,9 +18,33 @@ Via Composer
 $ composer require arungpisyadi/sibex
 ```
 
-## Usage
+## Basic Usage
 
-Coming soon.
+    <?php
+    use ArungPIsyadi\SiBex\SiBex;
+
+    $sibex = new SiBex(SIB_API_TYPE, SIB_API_KEY); // either "api-key" or "partner-key", you SendInBlue API key.
+
+    # Account function.
+    dump($account = $sibex->getAccount());
+    dump('email: '.$account['email']); // there are other return parameters that you can check your self.
+
+    # Contact function.
+    // get your lists
+    dump($sibex->getLists($limit, $offset));
+
+    // create a new list.
+    dump($this->sibex->createList());
+
+    // add a new email address as out contact in SendInBlue.
+    $request->email = 'test+temp01@example.com';
+    dump($sibex->createContact($request->email));
+
+    // add a contact based on email to a certain list.
+    $added = $sibex->addContactToList($list_id, $emails); // $list_id must be an integer, $emails is separated by comma string.
+    dump($added);
+    ?>
+    
 
 ## Change log
 
