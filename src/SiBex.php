@@ -89,7 +89,6 @@ class SiBex
 
         try {
             $response = $api->getLists($limit, $offset);
-            // dd($response);
             $return = Contact::translateLists($response);
         } catch (\Throwable $th) {
             $return = $th->getCode().': '. $th->getMessage();
@@ -160,7 +159,6 @@ class SiBex
         $api = $this->setupApiInstance('contact');
 
         $email_params = Contact::AddContactToList($email_arr);
-        // dd($email_params);
 
         try {
             $return = $api->addContactToList($listId, $email_params);
@@ -212,12 +210,11 @@ class SiBex
 
         try {
             $result = $api->getContactsFromList($id, null, $limit, $offset);
-            // dd($result);
             $return = Contact::translateContacts($result);
         } catch (\Throwable $th) {
             $return = $th->getMessage();
         }
-        dd($return);
+        
         return $return;
     }
 }
