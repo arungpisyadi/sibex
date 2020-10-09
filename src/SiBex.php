@@ -2,6 +2,7 @@
 
 namespace ArungPIsyadi\SiBex;
 
+use ArungPIsyadi\SiBex\SibexModels\Account;
 use ArungPIsyadi\SiBex\SibexModels\Contact;
 use Carbon\Carbon;
 use Illuminate\Support\Arr;
@@ -43,9 +44,11 @@ class SiBex
         $api = $this->setupApiInstance('account');
 
         try {
-            $return = $api->getAccount();
+            $account = $api->getAccount();
+            $AccountModal = new Account;
+            $return = $AccountModal->extract($account);
         } catch (\Throwable $th) {
-            $return = $th->getCode().': '. $th->getMessage();
+            $return = $th->getMessage();
         }
 
         return $return;
@@ -85,7 +88,9 @@ class SiBex
         $api = $this->setupApiInstance('contact');
 
         try {
-            $return = $api->getLists($limit, $offset);
+            $response = $api->getLists($limit, $offset);
+            // dd($response);
+            $return = Contact::translateLists($response);
         } catch (\Throwable $th) {
             $return = $th->getCode().': '. $th->getMessage();
         }
@@ -189,6 +194,30 @@ class SiBex
             $return = $th->getMessage();
         }
 
+        return $return;
+    }
+    
+    public function getContactsFromList(int $id, int $limit = 50, int $offset = 0)
+    {
+        $return = null;
+        if(null === $id){
+            throw new \Exception("List ID cannot empty.", 101);
+        }
+
+        if($id < 1){
+            throw new \Exception("List ID 0 is not valid.", 102);
+        }
+
+        $api = $this->setupApiInstance('contact');
+
+        try {
+            $result = $api->getContactsFromList($id, null, $limit, $offset);
+            // dd($result);
+            $return = Contact::translateContacts($result);
+        } catch (\Throwable $th) {
+            $return = $th->getMessage();
+        }
+        dd($return);
         return $return;
     }
 }

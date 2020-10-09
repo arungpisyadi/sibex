@@ -44,6 +44,10 @@ $ composer require arungpisyadi/sibex
     // add a contact based on email to a certain list.
     $added = $sibex->addContactToList($list_id, $emails); // $list_id must be an integer, $emails is a separated by comma string.
     dump($added);
+
+    //Get contacts from a list.
+    $contacts = $sibex->getContactsFromList($list_id);
+    dump($contacts);
     ?>
     
 

@@ -7,8 +7,8 @@ class Contact
     /**
      * Create SIB Model format for API request.
      *
-     * @param [type] $email
-     * @param [type] $atts
+     * @param string $email
+     * @param array $atts
      * @param boolean $emailBlacklisted
      * @param boolean $smsBlacklisted
      * @param array $listIds
@@ -39,6 +39,22 @@ class Contact
     public static function AddContactToList(array $emails)
     {
         return new \SendinBlue\Client\Model\AddContactToList(['emails' => $emails]);
+    }
+
+    public static function translateContacts($modal)
+    {
+        return (object) [
+            'contacts' => collect(json_decode(json_encode($modal['contacts']))),
+            'count' => (int) $modal['count'],
+        ];
+    }
+
+    public static function translateLists($modal)
+    {
+        return (object) [
+            'lists' => collect(json_decode(json_encode($modal['lists']))),
+            'count' => (int) $modal['count'],
+        ];
     }
 }
 ?>
