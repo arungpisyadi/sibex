@@ -1,7 +1,7 @@
 {
     "name": "arungpisyadi/sibex",
     "description": "A more straight forward package to use SendinBlue API V3 in Laravel environment (Ex : Express Solution). The package will enable you to handle SendInBlue various functions through Laravel Facade, mostly related to building email list and managing marketing campaign.",
-    "license": "GNU GENERAL PUBLIC LICENSE",
+    "license": "MIT",
     "authors": [{
         "name": "Arung Isyadi",
         "email": "isyadiarung@gmail.com",
